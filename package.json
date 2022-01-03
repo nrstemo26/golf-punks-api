@@ -7,6 +7,12 @@
     "start": "node index.js",
     "test": "node test.js"
   },
+  "eslintConfig": {
+    "rules": {
+      "object-curly-newline: true": true,
+      "lines-between-class-members": 1
+    }
+  },
   "author": "Tyler Fischer",
   "license": "MIT",
   "dependencies": {

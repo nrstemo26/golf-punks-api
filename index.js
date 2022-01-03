@@ -17,20 +17,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   res.send('Get ready for OpenSea!');
 });
-
 app.get('/api/token/:token_id', function (req, res) {
   const tokenId = parseInt(req.params.token_id).toString();
-  const person = db[tokenId];
-  const data = {
-    name: person.name,
+  const golfPunk = db[tokenId];
+  const golfPunkMetaData = {
+    name: golfPunk.name,
     symbol: 'GolfPunks',
-    attributes: {
-      backgroundColor: 'blue',
-    },
+    background_color: 'somehex',
     image: `localhost:5000/api/image/${db[tokenId].name}`,
+    attributes: [
+      {
+        trait_type: 'status',
+        value: 'zombie',
+      },
+    ],
   };
-  res.send(data);
+  console.log(golfPunkMetaData);
+
+  res.send(JSON.stringify(golfPunkMetaData, null, 4));
 });
+
 app.get('/api/image/:punk', function (req, res) {
   const punk = req.params.punk.toString();
   res.sendFile(`./public/images/${punk}.PNG`, { root: __dirname });
