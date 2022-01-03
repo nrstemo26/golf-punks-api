@@ -1,13 +1,13 @@
 {
-  "name": "metadata-api-nodejs",
+  "name": "golf-punks-api",
   "version": "1.0.0",
-  "description": "Sample metadata API for crypto collectibles",
+  "description": "Golf Punks Api",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "node test.js"
   },
-  "author": "Alex Atallah <alex.atallah@opensea.io>",
+  "author": "Tyler Fischer",
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.6.1",
