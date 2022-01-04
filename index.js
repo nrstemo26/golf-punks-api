@@ -26,6 +26,7 @@ app.get('/api/all', async function (req, res) {
 });
 
 app.get('/api/token/:token_id', function (req, res) {
+  const bucketURL = `https://golf-punks.s3.amazonaws.com/images/`;
   const tokenId = parseInt(req.params.token_id).toString();
   const golfPunk = db[tokenId][tokenId];
   const host = req.get('host');
@@ -33,7 +34,7 @@ app.get('/api/token/:token_id', function (req, res) {
     name: golfPunk.name,
     symbol: 'GolfPunks',
     background_color: 'somehex',
-    image: `${host}/api/image/${golfPunk.image}`,
+    image: `${bucketURL}${golfPunk.image}.png`,
     attributes: [
       {
         trait_type: 'status',
