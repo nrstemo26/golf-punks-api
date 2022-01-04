@@ -27,12 +27,13 @@ app.get('/api/all', async function (req, res) {
 
 app.get('/api/token/:token_id', function (req, res) {
   const tokenId = parseInt(req.params.token_id).toString();
-  const golfPunk = db[tokenId];
+  const golfPunk = db[tokenId][tokenId];
+  const host = req.get('host');
   const golfPunkMetaData = {
     name: golfPunk.name,
     symbol: 'GolfPunks',
     background_color: 'somehex',
-    image: `localhost:5000/api/image/${db[tokenId].name}`,
+    image: `${host}/api/image/${golfPunk.image}`,
     attributes: [
       {
         trait_type: 'status',

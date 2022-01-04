@@ -4,8 +4,11 @@ const fs = require('fs');
 
 fs.readdir(imagesFolder, (err, files) => {
   files = files.map((punk, index) => {
+    console.log(punk);
     let punkName = punk.replace(/\.[^/.]+$/, '');
-
+    // this will be the image url
+    const url = punk.replace(/\.[^/.]+$/, '');
+    // remove spaces in name
     punkName = punkName.replace(' -', '-');
     punkName = punkName.replace(" '", "'");
     if (punkName && punkName[punkName.length - 1] === ' ') {
@@ -13,7 +16,7 @@ fs.readdir(imagesFolder, (err, files) => {
     }
     console.log('____');
     console.log(punkName.length);
-    return `{'${index}': { name:'${punkName}'}}`;
+    return `{'${index}': { name:'${punkName}', image: '${url}'}}`;
   });
   console.log(files.toString());
   let dataString = JSON.stringify(files, '{}');
