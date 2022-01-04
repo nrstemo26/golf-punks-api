@@ -3,7 +3,8 @@ const path = require('path');
 const moment = require('moment');
 const { HOST } = require('./src/constants');
 // const db = require('./src/database').then((x) => console.log(x, 'wooo'));
-const db = require('./test.js');
+const db = require('./src/db.js');
+console.log(db);
 
 const PORT = process.env.PORT || 5000;
 
@@ -18,10 +19,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
   res.send('Get ready for OpenSea!');
 });
-app.get('api/names', async function (req, res) {
-  console.log(punkNames);
-  res.send(JSON.stringify(punkNames));
+
+app.get('/api/all', async function (req, res) {
+  console.log('oy?');
+  res.send(JSON.stringify(db, null, 2));
 });
+
 app.get('/api/token/:token_id', function (req, res) {
   const tokenId = parseInt(req.params.token_id).toString();
   const golfPunk = db[tokenId];

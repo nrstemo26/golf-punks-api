@@ -1,5 +1,5 @@
 const imagesFolder = './public/images';
-const dataFolder = './';
+const dataFolder = './src/';
 const fs = require('fs');
 
 fs.readdir(imagesFolder, (err, files) => {
@@ -20,7 +20,7 @@ fs.readdir(imagesFolder, (err, files) => {
   dataString = `const oy = [${files}]
   module.exports = oy`;
   //   fs.writeFile();
-  fs.writeFile(`${dataFolder}test.js`, dataString, (err) => {
+  fs.writeFile(`${dataFolder}db.js`, dataString, (err) => {
     console.log(err);
   });
 });
