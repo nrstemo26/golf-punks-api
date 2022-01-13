@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const { HOST } = require('./src/constants');
+const cors = require('cors');
+
 // const db = require('./src/database').then((x) => console.log(x, 'wooo'));
 const db = require('./src/db.js');
 console.log(db);
@@ -13,7 +15,8 @@ const app = express()
   .set('view engine', 'ejs');
 
 // Static public files
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.get('/', function (req, res) {
   res.send('Get ready for OpenSea!');
