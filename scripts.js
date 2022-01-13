@@ -26,9 +26,6 @@ fs.readdir(imagesFolder, (err, files) => {
   let dataString = JSON.stringify(files, '{}');
   dataString = `const oy = [${files}]
   module.exports = oy`;
-  fs.writeFile(`${dataFolder}db.js`, dataString, (err) => {
-    console.log(err);
-  });
 });
 const createCSV = (punks = []) => {
   const csvPunks = punks.map((punk, index) => {
@@ -49,7 +46,16 @@ const createCSV = (punks = []) => {
         '.png',
     };
   });
+  console.log(csvPunks);
   const dataCsv = papaparse.unparse(csvPunks);
+  fs.writeFile(
+    `${dataFolder}db.js`,
+    `module.exports = ${JSON.stringify(csvPunks)}`,
+    (err) => {
+      console.log(err);
+    }
+  );
+  console.log(dataCsv);
   fs.writeFile(`${dataFolder}db.csv`, dataCsv, (err) => {
     console.log(err);
   });

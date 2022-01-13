@@ -27,21 +27,22 @@ app.get('/api/all', async function (req, res) {
 app.get('/api/token/:token_id', function (req, res) {
   const bucketURL = `https://golf-punks.s3.amazonaws.com/images/`;
   const tokenId = parseInt(req.params.token_id).toString();
-  const golfPunk = db[tokenId][tokenId];
+  const golfPunk = db[tokenId];
   const host = req.get('host');
   const golfPunkMetaData = {
     name: golfPunk.name,
     symbol: 'GolfPunks',
-    background_color: 'somehex',
+    background_color: 'somehex', // probably need this
     image: `${bucketURL}${golfPunk.image}.png`,
+    description: 'golf punks!',
     attributes: [
-      {
-        trait_type: 'status',
-        value: 'zombie',
-      },
+      { trait_type: 'hat', value: golfPunk.attribute1 },
+      { trait_type: 'hat', value: golfPunk.attribute2 },
+      { trait_type: 'hat', value: golfPunk.attribute3 },
+      { trait_type: 'hat', value: golfPunk.attribute4 },
+      { trait_type: 'hat', value: golfPunk.attribute5 },
     ],
   };
-  console.log(golfPunkMetaData);
 
   res.send(JSON.stringify(golfPunkMetaData, null, 4));
 });
