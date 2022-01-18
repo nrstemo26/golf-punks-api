@@ -40,10 +40,7 @@ const createCSV = (punks = []) => {
       attribute5: null,
       'example attribute hat': Math.random() > 0.5 ? 'blue hat' : 'green hat',
       'attribute etc..': null,
-      image:
-        'https://golf-punks.s3.amazonaws.com/images/' +
-        punk[index].image +
-        '.png',
+      image: 'https://golf-punks.s3.amazonaws.com/images/' + punk[index].image,
     };
   });
   console.log(csvPunks);

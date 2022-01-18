@@ -36,7 +36,7 @@ app.get('/api/token/:token_id', function (req, res) {
     name: golfPunk.name,
     symbol: 'GolfPunks',
     background_color: 'somehex', // probably need this
-    image: `${bucketURL}${golfPunk.image}.png`,
+    image: golfPunk.image,
     description: 'golf punks!',
     attributes: [
       { trait_type: 'hat', value: golfPunk.attribute1 },
