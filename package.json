@@ -1,7 +1,7 @@
 {
-  "name": "golf-punks-api",
+  "name": "surf-punks-api",
   "version": "1.0.0",
-  "description": "Golf Punks Api",
+  "description": "Surf Punks Api",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,7 +13,7 @@
       "lines-between-class-members": 1
     }
   },
-  "author": "Tyler Fischer",
+  "author": "Ty Fischer + Nate Stemo",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
