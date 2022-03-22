@@ -31,7 +31,7 @@ app.get("/api/surfer/:surfer", function (req, res) {
     name: `${surfer}`,
     symbol: "SurfPunks",
     background_color: "somehex", // probably need this
-    image: `${req.headers.host}/api/images/surfers/${surfer}`,
+    image: `https://${req.headers.host}/api/images/surfers/${surfer}`,
     description: "surf punks (get description from conrad",
     attributes: [],
   };
@@ -47,7 +47,7 @@ app.get("/api/trunks/:trunkType/:tokenId", function (req, res) {
   const metadata = {
     name: `${tokenId}`,
     symbol: "SurfPunks",
-    image: `${req.headers.host}/api/images/trunks/${trunkType}`,
+    image: `https://${req.headers.host}/api/images/trunks/${trunkType}`,
     description: "surf punks (get description from conrad)",
     attributes: [],
   };
