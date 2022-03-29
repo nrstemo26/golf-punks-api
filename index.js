@@ -45,7 +45,7 @@ app.get("/api/trunks/:trunkType/:tokenId", function (req, res) {
   }
   const tokenId = req.params.tokenId.toString();
   const metadata = {
-    name: `${tokenId}`,
+    name: `Surf Punk #${tokenId}`,
     symbol: "SurfPunks",
     image: `https://${req.headers.host}/api/images/trunks/${trunkType}`,
     description: "surf punks (get description from conrad)",
