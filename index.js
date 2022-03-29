@@ -48,7 +48,8 @@ app.get("/api/trunks/:trunkType/:tokenId", function (req, res) {
     name: `Surf Punk #${tokenId}`,
     symbol: "SurfPunks",
     image: `https://${req.headers.host}/api/images/trunks/${trunkType}`,
-    description: "surf punks (get description from conrad)",
+    description:
+      "The second iteration of Surf Punks, evolved and ready, paddling out in to the Aquaverse.",
     attributes: [],
   };
   res.send(JSON.stringify(metadata, null, 4));
