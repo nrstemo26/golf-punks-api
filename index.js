@@ -35,6 +35,8 @@ app.get("/api/surfer/:surfer", function (req, res) {
     description:
       "The second iteration of Surf Punks, evolved and ready, paddling out in to the Aquaverse.",
   };
+
+  res.setHeader("Content-Type", "application/json");
   res.send(JSON.stringify(metadata, null, 4));
 });
 /* Gets metadata for a surfer that has not been revealed */
@@ -51,6 +53,8 @@ app.get("/api/trunks/:trunkType/:tokenId", function (req, res) {
     description:
       "The second iteration of Surf Punks, evolved and ready, paddling out in to the Aquaverse.",
   };
+
+  res.setHeader("Content-Type", "application/json");
   res.send(JSON.stringify(metadata, null, 4));
 });
 
