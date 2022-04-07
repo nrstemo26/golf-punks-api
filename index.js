@@ -32,8 +32,8 @@ app.get("/api/surfer/:surfer", function (req, res) {
     symbol: "SurfPunks",
     background_color: "somehex", // probably need this
     image: `https://${req.headers.host}/api/images/surfers/${surfer}`,
-    description: "surf punks (get description from conrad",
-    attributes: [],
+    description:
+      "The second iteration of Surf Punks, evolved and ready, paddling out in to the Aquaverse.",
   };
   res.send(JSON.stringify(metadata, null, 4));
 });
@@ -50,7 +50,6 @@ app.get("/api/trunks/:trunkType/:tokenId", function (req, res) {
     image: `https://${req.headers.host}/api/images/trunks/${trunkType}`,
     description:
       "The second iteration of Surf Punks, evolved and ready, paddling out in to the Aquaverse.",
-    attributes: [],
   };
   res.send(JSON.stringify(metadata, null, 4));
 });
