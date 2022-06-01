@@ -143,9 +143,11 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     image = surfer;
   }
   if (nPointer[surfer]) {
+    // console.log(+nPointer[image]);
+
     return res.redirect(
       `https://surfpunkv2.herokuapp.com/api/surfer/images/${
-        nPointer[image] - 500
+        +nPointer[surfer] - 500
       }`
     );
   }
