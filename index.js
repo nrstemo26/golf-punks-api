@@ -71,12 +71,12 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     // boba
     518: "99",
     482: "25",
+    801: "429",
     //
     //wants random
     // reserve 813-837
     813: "112",
-    814: "89",
-    815: "125",
+    // 814: "89",
     817: "108",
     818: "78",
     819: "87",
@@ -87,20 +87,26 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     824: "110",
     825: "93",
     826: "111",
-    827: "109",
+    // 827: "109",
+
     828: "86",
     829: "103",
     830: "102",
     831: "101",
     832: "0",
     833: "105",
-    834: "397",
+    //johnny add tokenid here "471"
+    // add random reserve number "21"
+    // 834: "397", accidental addition
     835: "64",
-
+    785: "140",
+    484: "353",
+    810: "21",
     // reserve finish
   };
   const nPointer = {
-    151: "813",
+    // 151: "813",
+
     31: "814",
     307: "815",
     455: "816",
@@ -108,12 +114,17 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     99: "518",
     132: "818",
     311: "819",
+    287: "820",
+    218: "821",
+    814: "817",
+    525: "743",
+    641: "676",
   };
   const rPointer = {
     816: "r_0",
     836: "r_14",
     837: "r_16",
-    812: "r_18",
+    521: "r_18",
     811: "r_19",
   };
   const surfer = +req.params.surfer.toString();
@@ -139,7 +150,11 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     folder = "random-surfers";
     image = rPointer[surfer];
   }
-  if (image !== "") {
+  if (surfer > 1000) {
+    res.sendFile(`./public/images/trunks/trunk-legacy.gif`, {
+      root: __dirname,
+    });
+  } else if (image !== "") {
     res.sendFile(`./public/images/${folder}/${image}.png`, { root: __dirname });
   }
 });
