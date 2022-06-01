@@ -65,7 +65,7 @@ app.get("/api/images/trunks/:trunk", function (req, res) {
     },
   });
 });
-
+// image: `https://${req.headers.host}/api/images/surfers/${surfer}`,
 app.get("/api/images/surfers/:surfer", function (req, res) {
   const oPointer = {
     // boba
