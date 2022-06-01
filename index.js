@@ -65,6 +65,14 @@ app.get("/api/images/trunks/:trunk", function (req, res) {
     },
   });
 });
+
+app.get("/api", function (req, res) {
+  // const trunk = req.params.trunk.toString();
+  const oy = res.redirect(
+    `https://surfpunkv2.herokuapp.com/api/surfer/images/509`
+  );
+  // console.log()
+});
 // image: `https://${req.headers.host}/api/images/surfers/${surfer}`,
 app.get("/api/images/surfers/:surfer", function (req, res) {
   const oPointer = {
@@ -134,23 +142,39 @@ app.get("/api/images/surfers/:surfer", function (req, res) {
     folder = "surfers";
     image = surfer;
   }
-  if (surfer >= 500) {
+  if (nPointer[surfer]) {
+    return res.redirect(
+      `https://surfpunkv2.herokuapp.com/api/surfer/images/${
+        nPointer[image] - 500
+      }`
+    );
+  }
+  if (
+    surfer >= 500 &&
+    !oPointer[surfer] &&
+    !rPointer[surfer] &&
+    surfer < 1010
+  ) {
     folder = "new-surfers";
-    image = surfer - 500;
+    image = surfer;
+
+    if (nPointer[surfer]) {
+      folder = "new-surfers";
+      image = nPointer[surfer];
+    }
+    image = image - 500;
+    res.redirect(`https://surfpunkv2.herokuapp.com/api/surfer/images/${image}`);
+    return;
   }
   if (oPointer[surfer]) {
     folder = "surfers";
     image = oPointer[surfer];
   }
-  if (nPointer[surfer]) {
-    folder = "new-surfers";
-    image = nPointer[surfer] - 500;
-  }
   if (rPointer[surfer]) {
     folder = "random-surfers";
     image = rPointer[surfer];
   }
-  if (surfer > 1000) {
+  if (surfer >= 1010) {
     res.sendFile(`./public/images/trunks/trunk-legacy.gif`, {
       root: __dirname,
     });
